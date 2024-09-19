@@ -23,6 +23,10 @@ function playGame(humanSelection) {
     playRound(humanSelection, computerSelection);
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function playRound(humanChoice, computerChoice) {
     let resultMessage = '';
 
@@ -34,10 +38,10 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === 'scissors' && computerChoice === 'paper')
     ) {
         humanScore++;
-        resultMessage = `You win! ${humanChoice} beats ${computerChoice}.`;
+        resultMessage = `You win! ${capitalizeFirstLetter(humanChoice)} beats ${computerChoice}.`;
     } else {
         computerScore++;
-        resultMessage = `You lose! ${computerChoice} beats ${humanChoice}.`;
+        resultMessage = `You lose! ${capitalizeFirstLetter(computerChoice)} beats ${humanChoice}.`;
     }
 
     resultsDiv.textContent = resultMessage;
